@@ -1,11 +1,11 @@
-# Shanghai kejian engineering management
+# Shanghai shuhai engineering management
 
 > 科健工程管理有限公司企业官网 前端
 
 一个业余时间（三周）的外包项目 最终成品：<http://www.shkjem.com>
 主分支已更新至改进版，老版本源码移至 Release  
 
-如果是学习的话推荐学习新版本 链接 <http://kejian.filog.cn/>
+如果是学习的话推荐学习新版本 链接 <http://shuhai.filog.cn/>
 另外有些同学在问后端的代码 这里 <https://github.com/ifzc/KeJian.Core.Api>
 
 ## 新版本改进
