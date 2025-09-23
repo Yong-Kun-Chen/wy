@@ -3,10 +3,6 @@
     <swiper id="swiperBox" v-bind:options="swiperOption" ref="mySwiper">
       <swiper-slide class="swiper-slide slide-one">
         <!-- 首页内容 -->
-        <!-- <div class="home-content">
-          <h1 class="slogan">欢迎来到我们的网站</h1>
-          <p class="subtitle">专业、创新、卓越</p>
-        </div> -->
       </swiper-slide>
       
       <!-- 产品第一页 -->
@@ -76,7 +72,7 @@
       </swiper-slide>
       
       <swiper-slide class="swiper-slide slide-three">
-        <!-- <div class="page">
+        <div class="page">
           <h3>最新资讯</h3>
           <p>Latest News</p>
         </div>
@@ -101,7 +97,7 @@
               <span>{{news.CreateTime}}</span>
             </div>
           </div>
-        </div> -->
+        </div>
       </swiper-slide>
     </swiper>
   </div>
@@ -163,12 +159,6 @@ export default {
   },
   created() {
     this.initLocalData();
-    // 监听窗口大小变化
-    window.addEventListener('resize', this.handleResize);
-  },
-  beforeUnmount() {
-    // 移除事件监听
-    window.removeEventListener('resize', this.handleResize);
   },
   computed: {
     swiper() {
@@ -246,139 +236,63 @@ export default {
       if (activeIndex === 1 || activeIndex === 2) {
         this.currentPage = activeIndex;
       }
-    },
-    handleResize() {
-      // 更新swiper高度
-      this.swiperOption.height = window.innerHeight - 60;
-      if (this.swiper) {
-        this.swiper.update();
-      }
     }
   },
   mounted() {
-    // 初始化swiper高度
-    this.handleResize();
+    // 注释掉原有的API请求，使用本地数据
   }
 };
 </script>
  
 <style lang="scss" scoped>
-.home {
-  overflow-x: hidden;
-}
-
 .swiper-slide {
   font-size: 24px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-content: center;
-  min-height: 100vh;
-  padding: 20px 0;
 
   .page {
     text-align: center;
-    height: auto;
-    min-height: 100px;
+    height: 100px;
     overflow: hidden;
-    padding: 0 20px;
-    
-    h3 {
+    h3,
+    p {
       font-size: 40px;
       font-weight: 400;
       color: #fff;
-      margin-bottom: 10px;
-      
-      @media (max-width: 768px) {
-        font-size: 32px;
-      }
-      
-      @media (max-width: 480px) {
-        font-size: 28px;
-      }
-    }
-    
-    p {
-      font-size: 24px;
-      font-weight: 400;
-      color: #fff;
-      
-      @media (max-width: 768px) {
-        font-size: 20px;
-      }
-      
-      @media (max-width: 480px) {
-        font-size: 18px;
-      }
     }
   }
 
-  .home-content {
+  .slogan {
     text-align: center;
-    padding: 0 20px;
-    
-    .slogan {
-      font-size: 50px;
-      color: #fff;
-      margin-bottom: 20px;
-      
-      @media (max-width: 768px) {
-        font-size: 40px;
-      }
-      
-      @media (max-width: 480px) {
-        font-size: 32px;
-      }
-    }
-    
-    .subtitle {
-      font-size: 24px;
-      color: #fff;
-      
-      @media (max-width: 480px) {
-        font-size: 18px;
-      }
-    }
+    font-size: 50px;
+    color: #fff;
+    padding: 30px 0;
   }
 }
 
 //经典案例
 .case-item {
-  width: 90%;
-  max-width: 1100px;
-  height: auto;
-  min-height: 500px;
+  width: 1100px;
+  height: 500px;
   overflow: hidden;
   margin: 0 auto;
   margin-top: 30px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  padding: 0 10px;
-  
+  justify-content: flex-start;
   li {
-    width: calc(33.333% - 20px);
-    min-width: 280px;
+    width: 330px;
     height: 250px;
     list-style: none;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     background-origin: content-box;
+    margin: 5px;
     position: relative;
     overflow: hidden;
-    flex-grow: 1;
-
-    @media (max-width: 1024px) {
-      width: calc(50% - 20px);
-    }
-    
-    @media (max-width: 600px) {
-      width: 100%;
-      max-width: 400px;
-      height: 200px;
-    }
 
     &:hover {
       .case-item-hover {
@@ -409,38 +323,21 @@ export default {
     white-space: nowrap;
     font-weight: 400;
     margin-top: 20px;
-    padding: 0 15px;
-    
-    @media (max-width: 480px) {
-      font-size: 16px;
-      margin-top: 15px;
-    }
   }
-  
   .bottom {
     border-bottom: 1px solid #fff;
     width: 60px;
     margin: 0 auto;
   }
-  
   .more {
     width: 90px;
     padding: 5px 5px;
     margin: 0 auto;
     margin-top: 100px;
     border: 2px solid #fff;
-    
-    @media (max-width: 600px) {
-      margin-top: 60px;
-    }
-    
     span {
       color: #fff;
       font-size: 20px;
-      
-      @media (max-width: 480px) {
-        font-size: 16px;
-      }
     }
   }
 }
@@ -452,8 +349,6 @@ export default {
   align-items: center;
   margin-top: 20px;
   gap: 20px;
-  flex-wrap: wrap;
-  padding: 0 20px;
   
   button {
     padding: 10px 20px;
@@ -464,13 +359,6 @@ export default {
     border-radius: 5px;
     font-size: 14px;
     transition: all 0.3s ease;
-    min-width: 100px;
-    
-    @media (max-width: 480px) {
-      padding: 8px 16px;
-      min-width: 80px;
-      font-size: 12px;
-    }
     
     &:disabled {
       opacity: 0.3;
@@ -487,14 +375,6 @@ export default {
     color: #fff;
     font-size: 16px;
     font-weight: 500;
-    
-    @media (max-width: 480px) {
-      font-size: 14px;
-      order: -1;
-      width: 100%;
-      text-align: center;
-      margin-bottom: 10px;
-    }
   }
 }
 
@@ -513,27 +393,16 @@ export default {
 
 //最新资讯
 .news-content {
-  width: 90%;
-  max-width: 1240px;
+  width: 1240px;
   margin: 0 auto;
   margin-top: 40px;
   display: flex;
-  flex-direction: column;
-  gap: 40px;
-  padding: 0 20px;
+  justify-content: center;
 
   &-item {
+    width: 400px;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    
-    @media (max-width: 768px) {
-      flex-direction: column;
-      text-align: center;
-      gap: 20px;
-    }
+    flex-direction: column;
 
     .item-img {
       width: 360px;
@@ -542,30 +411,11 @@ export default {
       background-size: cover;
       background-position: center;
       background-origin: content-box;
-      
-      @media (max-width: 1024px) {
-        width: 300px;
-        height: 200px;
-      }
-      
-      @media (max-width: 768px) {
-        width: 100%;
-        max-width: 400px;
-        height: 250px;
-      }
+      margin: 0 auto;
     }
-    
     .el-divider {
       background-color: #fff;
       height: 3px;
-      width: 50px;
-      margin: 0 30px;
-      
-      @media (max-width: 768px) {
-        width: 80%;
-        margin: 10px auto;
-      }
-      
       .el-divider__text {
         width: 20px;
         height: 20px;
@@ -574,33 +424,17 @@ export default {
         color: #fff;
       }
     }
-    
     .item-content {
       width: 360px;
-      height: auto;
-      min-height: 230px;
-      
-      @media (max-width: 1024px) {
-        width: 300px;
-      }
-      
-      @media (max-width: 768px) {
-        width: 100%;
-        max-width: 500px;
-      }
-      
+      height: 230px;
+      margin: 0 auto;
       h3 {
         font-size: 22px;
         height: 30px;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        
-        @media (max-width: 480px) {
-          font-size: 20px;
-        }
       }
-      
       p {
         font-size: 15px;
         height: 80px;
@@ -612,134 +446,17 @@ export default {
         -webkit-box-orient: vertical;
         white-space: normal !important;
         word-wrap: break-word;
-        
-        @media (max-width: 480px) {
-          font-size: 14px;
-          height: auto;
-          min-height: 80px;
-        }
       }
-      
       span {
         display: block;
         font-size: 14px;
         text-align: end;
-        
-        @media (max-width: 768px) {
-          text-align: center;
-        }
       }
-      
       h3,
       p,
       span {
         color: #fff;
       }
-    }
-  }
-}
-
-// 响应式断点
-@media (max-width: 1024px) {
-  // 平板样式调整
-  .swiper-slide {
-    justify-content: flex-start;
-    padding-top: 60px;
-  }
-}
-
-@media (max-width: 768px) {
-  // 小型平板/大手机
-  .swiper-slide {
-    .page {
-      h3 {
-        font-size: 28px;
-      }
-      p {
-        font-size: 18px;
-      }
-    }
-  }
-  
-  .case-item {
-    width: 95%;
-    gap: 8px;
-    
-    li {
-      height: 200px;
-    }
-  }
-}
-
-@media (max-width: 480px) {
-  // 手机设备
-  .swiper-slide {
-    padding: 10px 0;
-    
-    .page {
-      h3 {
-        font-size: 24px;
-      }
-      p {
-        font-size: 16px;
-      }
-    }
-  }
-  
-  .case-item {
-    width: 100%;
-    padding: 0 5px;
-    
-    li {
-      height: 180px;
-      min-width: unset;
-    }
-  }
-  
-  .pagination {
-    gap: 10px;
-    
-    button {
-      padding: 6px 12px;
-      font-size: 12px;
-    }
-  }
-  
-  .news-content {
-    margin-top: 20px;
-    gap: 30px;
-    
-    &-item {
-      .item-content {
-        h3 {
-          font-size: 18px;
-        }
-        
-        p {
-          font-size: 14px;
-        }
-      }
-    }
-  }
-}
-
-// 横屏手机适配
-@media (max-height: 500px) and (orientation: landscape) {
-  .swiper-slide {
-    padding: 40px 0;
-    justify-content: center;
-    
-    .page {
-      margin-bottom: 10px;
-    }
-  }
-  
-  .case-item {
-    height: auto;
-    min-height: 200px;
-    
-    li {
-      height: 150px;
     }
   }
 }
