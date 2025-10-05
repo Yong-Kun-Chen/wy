@@ -1,6 +1,6 @@
 <template>
   <div class="news">
-    <banner title="新闻资讯" />
+    <banner title="关于我们" />
     <div class="news-section" v-loading="loading">
       <div class="news-section-content">
         <div class="content-nav">
